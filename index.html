@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Rápido</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 2em;
+            letter-spacing: 2px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            width: 80%;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        .link {
+            margin: 10px;
+            padding: 15px 30px;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .notas-bg {
+            background-color: #f9f7f3;
+            background-image: url('https://meowrhino.github.io/notas/img/background.jpg'); /* Asegúrate de usar la URL correcta */
+            background-size: cover;
+            color: #333;
+        }
+        .hopeko-bg {
+            background-color: #e8f5e9;
+            color: #333;
+        }
+        .somnis-bg {
+            background-image: url('https://meowrhino.github.io/hopeko/img/somnis.gif'); /* Asegúrate de usar la URL correcta */
+            background-size: cover;
+            color: #fff;
+        }
+        .txttohtml-bg {
+            background-color: #e0f7fa;
+            color: #333;
+        }
+        .registro-bg {
+            background-color: #fff3e0;
+            color: #333;
+        }
+        .link.notas { background-color: rgba(255, 87, 34, 0.8); }
+        .link.hopeko { background-color: rgba(76, 175, 80, 0.8); }
+        .link.somnis { background-color: rgba(63, 81, 181, 0.8); }
+        .link.txttohtml { background-color: rgba(0, 188, 212, 0.8); }
+        .link.registro { background-color: rgba(255, 152, 0, 0.8); }
+        footer {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #333;
+            width: 100%;
+            text-align: center;
+            color: #ffeb3b;
+            font-family: 'Homemade Apple', cursive;
+            font-size: 1.2em;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .footer-text {
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Acceso Rápido a Mis Páginas
+    </header>
+    <div class="container notas-bg">
+        <a href="https://meowrhino.github.io/notas/" class="link notas">Notas</a>
+    </div>
+    <div class="container hopeko-bg">
+        <a href="https://meowrhino.github.io/hopeko/" class="link hopeko">Hopeko</a>
+    </div>
+    <div class="container somnis-bg">
+        <a href="file:///Users/manue/Desktop/proyectitos/somnis/index.html" class="link somnis">Somnis</a>
+    </div>
+    <div class="container txttohtml-bg">
+        <a href="https://meowrhino.github.io/txttohtml/" class="link txttohtml">Txt to HTML</a>
+    </div>
+    <div class="container registro-bg">
+        <a href="https://meowrhino.github.io/registro/public/" class="link registro">Registro Público</a>
+    </div>
+    <footer>
+        <p class="footer-text">Molaria que al igual que en los sueños de Meowrhino el formulario no estuviese en Txt to HTML sino integrado en cada uno de los registros, tanto en Hopeko como en Notas</p>
+    </footer>
+</body>
+</html>
