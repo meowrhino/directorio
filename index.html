@@ -11,10 +11,17 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #e5e5f7;
+            background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), 
+                        radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 15px 15px, 
+                        linear-gradient(#444cf7 1.2px, transparent 1.2px) 0 -0.6px, 
+                        linear-gradient(90deg, #444cf7 1.2px, #e5e5f7 1.2px) -0.6px 0;
+            background-size: 30px 30px, 30px 30px, 15px 15px, 15px 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
+            justify-content: space-between;
         }
         header {
             background-color: #333;
@@ -25,67 +32,54 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             font-size: 2em;
             letter-spacing: 2px;
+            overflow: hidden;
+        }
+        header .animate {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 10s linear infinite;
+        }
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
         }
         .container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-            width: 80%;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
+            background-color: #fff;
+            max-width: calc(3 * 240px); /* Ajusta esto según el tamaño del botón y el margen */
         }
         .link {
             margin: 10px;
-            padding: 15px 30px;
+            padding: 30px 50px;
             color: #ffffff;
             text-decoration: none;
             border-radius: 10px;
-            font-size: 1.2em;
+            font-size: 1.4em;
             transition: transform 0.3s, box-shadow 0.3s;
-            width: 100%;
+            width: 220px; /* Tamaño fijo del botón */
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px; /* Tamaño fijo del botón */
         }
         .link:hover {
             transform: scale(1.05);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
-        .notas-bg {
-            background-color: #f9f7f3;
-            background-image: url('https://meowrhino.github.io/notas/img/background.jpg'); /* Asegúrate de usar la URL correcta */
-            background-size: cover;
-            color: #333;
-        }
-        .hopeko-bg {
-            background-color: #e8f5e9;
-            color: #333;
-        }
-        .somnis-bg {
-            background-image: url('https://meowrhino.github.io/hopeko/img/somnis.gif'); /* Asegúrate de usar la URL correcta */
-            background-size: cover;
-            color: #fff;
-        }
-        .txttohtml-bg {
-            background-color: #e0f7fa;
-            color: #333;
-        }
-        .registro-bg {
-            background-color: #fff3e0;
-            color: #333;
-        }
-        .historias-bg {
-            background-color: #f3e5f5;
-            color: #333;
-        }
-        .link.notas { background-color: rgba(255, 87, 34, 0.8); }
-        .link.hopeko { background-color: rgba(76, 175, 80, 0.8); }
-        .link.somnis { background-color: rgba(63, 81, 181, 0.8); }
-        .link.txttohtml { background-color: rgba(0, 188, 212, 0.8); }
-        .link.registro { background-color: rgba(255, 152, 0, 0.8); }
-        .link.historias { background-color: rgba(156, 39, 176, 0.8); }
+        .link.notas { background-color: #F6EB9A; color: #333; }
+        .link.hopeko { background-color: #5853BC; }
+        .link.somnis { background-color: #362391; }
+        .link.txttohtml { background-color: #1C0C59; }
+        .link.registro { background-color: #C0C59F; color: #333; }
+        .link.historias { background-color: #5853BC; }
         footer {
             margin-top: 30px;
             padding: 20px;
@@ -93,38 +87,35 @@
             width: 100%;
             text-align: center;
             color: #ffeb3b;
-            font-family: 'Homemade Apple', cursive;
+            font-family: 'Arial Narrow', sans-serif;
             font-size: 1.2em;
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
         }
         .footer-text {
-            background-color: #444;
             padding: 10px;
             border-radius: 5px;
             display: inline-block;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px; /* Añade margen en la vista responsive */
+            }
+            .link {
+                width: calc(100% - 40px); /* Ajuste para pantallas pequeñas */
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        Acceso Rápido a Mis Páginas
+        <div class="animate">Acceso Rápido a Mis Páginas</div>
     </header>
-    <div class="container notas-bg">
+    <div class="container">
         <a href="https://meowrhino.github.io/notas/" class="link notas">Notas</a>
-    </div>
-    <div class="container hopeko-bg">
         <a href="https://meowrhino.github.io/hopeko/" class="link hopeko">Hopeko</a>
-    </div>
-    <div class="container somnis-bg">
-        <a href="file:///Users/manue/Desktop/proyectitos/somnis/index.html" class="link somnis">Somnis</a>
-    </div>
-    <div class="container txttohtml-bg">
+        <a href="https://meowrhino.github.io/somnis/" class="link somnis">Somnis</a>
         <a href="https://meowrhino.github.io/txttohtml/" class="link txttohtml">Txt to HTML</a>
-    </div>
-    <div class="container registro-bg">
         <a href="https://meowrhino.github.io/registro/public/" class="link registro">Registro Público</a>
-    </div>
-    <div class="container historias-bg">
         <a href="https://meowrhino.github.io/historias/" class="link historias">Historias</a>
     </div>
     <footer>
