@@ -33,6 +33,7 @@
             font-size: 2em;
             letter-spacing: 2px;
             overflow: hidden;
+            font-family: 'Arial Narrow', sans-serif; /* Cambiar fuente del marquee */
         }
         header .animate {
             display: inline-block;
@@ -52,10 +53,15 @@
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             background-color: #fff;
-            max-width: calc(3 * 240px); /* Ajusta esto según el tamaño del botón y el margen */
+            max-width: 800px; /* Ajusta esto según el tamaño del botón y el margen */
+        }
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
         }
         .link {
-            margin: 10px;
             padding: 30px 50px;
             color: #ffffff;
             text-decoration: none;
@@ -80,6 +86,21 @@
         .link.txttohtml { background-color: #1C0C59; }
         .link.registro { background-color: #C0C59F; color: #333; }
         .link.historias { background-color: #5853BC; }
+        .github-link {
+            margin-top: 10px;
+            font-size: 0.8em;
+            background-color: #1a237e; /* Color más oscuro */
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: block;
+            text-align: center;
+        }
+        .github-link:hover {
+            background-color: #121858;
+        }
         footer {
             margin-top: 30px;
             padding: 20px;
@@ -98,7 +119,12 @@
         }
         @media (max-width: 600px) {
             .container {
-                margin: 10px; /* Añade margen en la vista responsive */
+                flex-direction: column; /* Ajuste para pantallas pequeñas */
+                align-items: center;
+            }
+            .link-container {
+                width: 100%; /* Ajuste para pantallas pequeñas */
+                margin: 10px 0; /* Ajuste para pantallas pequeñas */
             }
             .link {
                 width: calc(100% - 40px); /* Ajuste para pantallas pequeñas */
@@ -111,12 +137,30 @@
         <div class="animate">Acceso Rápido a Mis Páginas</div>
     </header>
     <div class="container">
-        <a href="https://meowrhino.github.io/notas/" class="link notas">Notas</a>
-        <a href="https://meowrhino.github.io/hopeko/" class="link hopeko">Hopeko</a>
-        <a href="https://meowrhino.github.io/somnis/" class="link somnis">Somnis</a>
-        <a href="https://meowrhino.github.io/txttohtml/" class="link txttohtml">Txt to HTML</a>
-        <a href="https://meowrhino.github.io/registro/public/" class="link registro">Registro Público</a>
-        <a href="https://meowrhino.github.io/historias/" class="link historias">Historias</a>
+        <div class="link-container">
+            <a href="https://meowrhino.github.io/notas/" class="link notas">Notas</a>
+            <a href="https://github.com/meowrhino/notas" class="github-link">GitHub</a>
+        </div>
+        <div class="link-container">
+            <a href="https://meowrhino.github.io/hopeko/" class="link hopeko">Hopeko</a>
+            <a href="https://github.com/meowrhino/hopeko" class="github-link">GitHub</a>
+        </div>
+        <div class="link-container">
+            <a href="https://meowrhino.github.io/somnis/" class="link somnis">Somnis</a>
+            <a href="https://github.com/meowrhino/somnis" class="github-link">GitHub</a>
+        </div>
+        <div class="link-container">
+            <a href="https://meowrhino.github.io/txttohtml/" class="link txttohtml">Txt to HTML</a>
+            <a href="https://github.com/meowrhino/txttohtml" class="github-link">GitHub</a>
+        </div>
+        <div class="link-container">
+            <a href="https://meowrhino.github.io/registro/public/" class="link registro">Registro Público</a>
+            <a href="https://github.com/meowrhino/registro" class="github-link">GitHub</a>
+        </div>
+        <div class="link-container">
+            <a href="https://meowrhino.github.io/historias/" class="link historias">Historias</a>
+            <a href="https://github.com/meowrhino/historias" class="github-link">GitHub</a>
+        </div>
     </div>
     <footer>
         <p class="footer-text">Molaria que al igual que en los sueños de Meowrhino el formulario no estuviese en Txt to HTML sino integrado en cada uno de los registros, tanto en Hopeko como en Notas</p>
