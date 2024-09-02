@@ -24,32 +24,12 @@
             min-height: 100vh;
             justify-content: space-between;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            width: 100%;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-size: 2em;
-            letter-spacing: 2px;
-            overflow: hidden;
-            font-family: 'Arial Narrow', sans-serif; /* Cambiar fuente del marquee */
-        }
-        header .animate {
-            display: inline-block;
-            white-space: nowrap;
-            animation: marquee 10s linear infinite;
-        }
-        @keyframes marquee {
-            from { transform: translateX(100%); }
-            to { transform: translateX(-100%); }
-        }
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             margin: 20px;
+            margin-top: 80px;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -82,6 +62,12 @@
             transform: scale(1.05);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
+        .link.oficial {
+            background-color: #FFD93D;
+            width: 460px; /* Doble de ancho */
+            color: #333;
+            margin-bottom: 20px;
+        }
         .link.notas { background-color: #F6EB9A; color: #333; }
         .link.hopeko { background-color: #5853BC; }
         .link.somnis { background-color: #362391; }
@@ -107,6 +93,22 @@
             background-color: #121858;
         }
 
+        /* Botón de descripción */
+        .desc-button {
+            margin-top: 5px;
+            padding: 5px 10px;
+            font-size: 0.8em;
+            background-color: #ffeb3b;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .desc-button:hover {
+            background-color: #ffd600;
+        }
+
         /* Estilos para proyectos en construcción */
         .link.construccion {
             opacity: 0.6;
@@ -122,6 +124,42 @@
             color: #B71C1C;
             text-transform: uppercase;
             font-weight: bold;
+        }
+
+        /* Estilos para el pop-up */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+        }
+        .popup-content h3 {
+            margin-top: 0;
+        }
+        .close-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .close-button:hover {
+            background-color: #d32f2f;
         }
 
         footer {
@@ -152,71 +190,207 @@
             .link {
                 width: calc(100% - 40px); /* Ajuste para pantallas pequeñas */
             }
+            .link.oficial {
+                width: calc(100% - 40px); /* Ajuste para pantallas pequeñas */
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="animate"><a href="https://meowrhino.neocities.org/">página oficial de meowrhino</a></div>
-    </header>
     <div class="container">
+        <!-- Botón para página oficial de Meowrhino -->
+        <div class="link-container">
+            <a href="https://meowrhino.neocities.org/" class="link oficial">Página Oficial de Meowrhino</a>
+        </div>
+
         <!-- Proyectos terminados -->
         <div class="link-container">
             <a href="https://meowrhino.github.io/notas/" class="link notas">Notas</a>
             <a href="https://github.com/meowrhino/notas" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('notas')">Descripción</button>
         </div>
         <div class="link-container">
             <a href="https://meowrhino.github.io/hopeko/" class="link hopeko">Hopeko</a>
             <a href="https://github.com/meowrhino/hopeko" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('hopeko')">Descripción</button>
         </div>
         <div class="link-container">
             <a href="https://meowrhino.github.io/somnis/" class="link somnis">Somnis</a>
             <a href="https://github.com/meowrhino/somnis" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('somnis')">Descripción</button>
         </div>
         <div class="link-container">
             <a href="https://meowrhino.github.io/txttohtml/" class="link txttohtml">Txt to HTML</a>
             <a href="https://github.com/meowrhino/txttohtml" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('txttohtml')">Descripción</button>
         </div>
         <div class="link-container">
             <a href="https://meowrhino.github.io/registro/public/" class="link registro">Registro Público</a>
             <a href="https://github.com/meowrhino/registro" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('registro')">Descripción</button>
         </div>
         <div class="link-container">
             <a href="https://meowrhino.github.io/historias/" class="link historias">Historias</a>
             <a href="https://github.com/meowrhino/historias" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('historias')">Descripción</button>
         </div>
         <div class="link-container">
             <a href="https://meowrhino.github.io/profilePics/" class="link profilepics">Profile Pics</a>
             <a href="https://github.com/meowrhino/profilePics" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('profilepics')">Descripción</button>
         </div>
         <div class="link-container">
             <a href="https://meowrhino.github.io/rockPaperScissors/" class="link rockpaperscissors">Rock Paper Scissors</a>
             <a href="https://github.com/meowrhino/rockPaperScissors" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('rockpaperscissors')">Descripción</button>
         </div>
         <div class="link-container">
             <a href="https://meowrhino.github.io/writingapp/" class="link writingapp">WritingApp</a>
             <a href="https://github.com/meowrhino/writingapp" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('writingapp')">Descripción</button>
         </div>
         <!-- Proyectos en construcción -->
         <div class="link-container">
             <a href="https://meowrhino.github.io/apoloASCII/" class="link construccion">Disco ASCII <span class="wip">WIP</span></a>
             <a href="https://github.com/meowrhino/apoloASCII" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('apoloASCII')">Descripción</button>
         </div>
         <div class="link-container">
             <a href="https://meowrhino.github.io/etchASketch/" class="link construccion">Minesweeper <span class="wip">WIP</span></a>
             <a href="https://github.com/meowrhino/etchASketch" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('etchASketch')">Descripción</button>
         </div>
         <div class="link-container">
             <a href="https://meowrhino.github.io/instagramNameGenerator/" class="link construccion">Instagram Name Generator <span class="wip">WIP</span></a>
             <a href="https://github.com/meowrhino/instagramNameGenerator" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('instagramNameGenerator')">Descripción</button>
         </div>
         <div class="link-container">
             <a href="https://meowrhino.github.io/pdfs/" class="link construccion">PDFs <span class="wip">WIP</span></a>
             <a href="https://github.com/meowrhino/pdfs" class="github-link">GitHub</a>
+            <button class="desc-button" onclick="openPopup('pdfs')">Descripción</button>
         </div>
     </div>
+
+    <!-- Pop-ups para descripciones -->
+    <div id="notas" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Notas</h3>
+            <p>Este proyecto es una colección de notas que he ido escribiendo en mi app de notas, como hay +2000 notas ahí, he comenzado a ponerlas aquí para no perderlas y, de cuando en cuando, leerlas</p>
+            <button class="close-button" onclick="closePopup('notas')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="hopeko" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Hopeko</h3>
+            <p>Hopeko es un poco mi "diario" de relación con la música, ahí iré poniendo canciones que me gustan, apuntes de clase, pequeñas composiciones, y todo material por periferico que parezca a esta investigación</p>
+            <button class="close-button" onclick="closePopup('hopeko')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="somnis" class="popup-overlay">
+        <div class="popup-content">
+            <h3>somnis</h3>
+            <p>somnis quiero que sea un diario de sueños, que se me pierden en la app de notas, como las notas del proyecto notas. aún no he subido ninguno, pero la página es bien bonita y ya tiene integrado su txttohtml particular que comento abajo, que pronto tendrán también tanto notas como hopeko</p>
+            <button class="close-button" onclick="closePopup('somnis')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="txttohtml" class="popup-overlay">
+        <div class="popup-content">
+            <h3>txttohtml</h3>
+            <p>txttohtml es una aplicación web muy sencilla donde copio y pego las notas de mi app notas para convertirlas en código html para los proyectos de notas y hopeko, seguramente deje de usarla conforme cada uno de los proyectos tengan su propio txttohtml, lo que me hace un poco triste</p>
+            <button class="close-button" onclick="closePopup('txttohtml')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="registro" class="popup-overlay">
+        <div class="popup-content">
+            <h3>registro</h3>
+            <p>registro es eso, un registro de situaciones que me recomendaron empezase a usar en el curro ante una jefa que me trataba fatal. como he visto que es bastante útil pensé en hacer uno para todo, pero no lo he usado nunca, solo lo he necesitado para gestionar el mal que me provocaba mi jefa</p>
+            <button class="close-button" onclick="closePopup('registro')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="historias" class="popup-overlay">
+        <div class="popup-content">
+            <h3>historias</h3>
+            <p>historias es un lugar donde quiero subir más historias. es un intento de escribir más. a día de hoy (2/9/2024) sólo tengo textos de relleno. espero que en alguna actualización pueda quitar esos textos porque ya hayan historias de todo tipo. Es diferente de notas o de somnis porque, la intención inicial de historias, es que sean más largas y que no necesariamente sean "reales" sino puedan partir a partir de alguna nota o sueño registrado y se extiendan</p>
+            <button class="close-button" onclick="closePopup('historias')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="profilepics" class="popup-overlay">
+        <div class="popup-content">
+            <h3>profilepics</h3>
+            <p>profilepics es una galería de mis fotos de perfil de telegram, cuando encuentro una foto con la que me siento identificado de alguna manera me la pongo de foto de telegram, pero hay un tope de 100 y perdí las 2 o 3 primeras. cada x tiempo lo actualizo</p>
+            <button class="close-button" onclick="closePopup('profilepics')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="rockpaperscissors" class="popup-overlay">
+        <div class="popup-content">
+            <h3>rockpaperscissors</h3>
+            <p>rockpaperscissors es la primera cosa chula que hice con JS, es un ejercicio del curso de <a href="https://www.theodinproject.com/paths/foundations/courses/foundations">the odin project</a>, que empecé porque vi que lo recomendaron en posts de reddit</p>
+            <button class="close-button" onclick="closePopup('rockpaperscissors')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="writingapp" class="popup-overlay">
+        <div class="popup-content">
+            <h3>writingapp</h3>
+            <p>writingapp es una app para escribir, porque me cuesta mucho ponerme a escribir y quiero hacerlo más, la idea es que lo escrito vaya a historias, pero no lo tengo tan claro, porque lo primero y lo último que he escrito hasta ahora está lleno de nombres propios que para mí son importantes pero para la gente no deberían ser accesibles</p>
+            <button class="close-button" onclick="closePopup('writingapp')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="apoloASCII" class="popup-overlay">
+        <div class="popup-content">
+            <h3>apoloASCII</h3>
+            <p>Disco ASCII es igual una secuela a <a href="https://meowrhino.neocities.org/lafesta.html">festa</a>, un día en cierta discoteca de barcelona pensé que me gustaría un juego en el que escuches mejor la musica cuanto mas cerca estes de los altavoces y que dependiendo del altavoz que tengas más cerca suene más o menos un canal estéreo</p>
+            <button class="close-button" onclick="closePopup('apoloASCII')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="etchASketch" class="popup-overlay">
+        <div class="popup-content">
+            <h3>etchASketch</h3>
+            <p>Minesweeper es también un proyecto a partir del ejercicio de etch a sketch de <a href="https://www.theodinproject.com/paths/foundations/courses/foundations">the odin project</a>, pero quiero que se convierta en un <a href="https://minesweeper.online/es/new-game">buscaminas como éste</a> y quiero que el 90% del trabajo en este proyecto sea en horario laboral</p>
+            <button class="close-button" onclick="closePopup('etchASketch')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="instagramNameGenerator" class="popup-overlay">
+        <div class="popup-content">
+            <h3>instagramNameGenerator</h3>
+            <p>el IGNG es una app que aún esta en desarrollísimo y casi sólo funciona en la consola, pero la idea es que explotando el máximo de carácteres que te permite IG de @ puedas generar una @ bien chula como de moderno con muchos underscores (_) entre los carácteres que introduzcas</p>
+            <button class="close-button" onclick="closePopup('instagramNameGenerator')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="pdfs" class="popup-overlay">
+        <div class="popup-content">
+            <h3>pdfs</h3>
+            <p>este es un proyecto que llevo años queriendo hacer y que si alguien me ayuda estaré muy contento. quiero generar un repositorio de PDFs de conversaciones que dan palo tener pero de alguna manera entendemos como necesarias, pero no queremos la carga de tener que ser quien las de. en lugar de tener una conversación tediosa, depende de como emocionalmente dificil, y a distintas personas. en lugar de éso, subir a un lugar público tu "take on that" en pdf para que puedas enviarle ese link a la persona que te abra esa conversación y que la responsabilidad de "enseñar" en ti desaparezca, y se cambie por "leerse un pdf". de esta manera tú te ahorras repetir como un disco rallado conversaciones que igual no te apetecen pero sin negar el acceso a la información a personas que por el motivo que sea no la han tenido. se aceptan temas como "por qué la vivienda no ha de tener valor de mercado" o de "el tema del género" o de "lo público si no es gratuito, no es publico"</p>
+            <button class="close-button" onclick="closePopup('pdfs')">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Más pop-ups para otros proyectos -->
+
     <footer>
-        <p class="footer-text">Molaria que al igual que en los sueños de Meowrhino el formulario no estuviese en Txt to HTML sino integrado en cada uno de los registros, tanto en Hopeko como en Notas</p>
+        <p class="footer-text">Molaria que al igual que en los sueños de Meowrhino el formulario no estuviese en Txt to HTML sino integrado en cada uno de los registros, tanto en Hopeko como en Notas, y que fuesen especificos para cada uno. <br> también mola que asi cuando accedas a la pagina accederas tambien a la pagina donde yo subo las cosas kinda</p>
     </footer>
+
+    <script>
+        function openPopup(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+
+        function closePopup(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
 </body>
 </html>
