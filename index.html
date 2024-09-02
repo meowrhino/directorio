@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceso Rápido</title>
     <style>
+        /* Estilos existentes */
         @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Roboto:wght@400;700&display=swap');
 
         body {
@@ -75,6 +76,7 @@
             justify-content: center;
             align-items: center;
             height: 80px; /* Tamaño fijo del botón */
+            position: relative;
         }
         .link:hover {
             transform: scale(1.05);
@@ -103,6 +105,24 @@
         .github-link:hover {
             background-color: #121858;
         }
+
+        /* Estilos para proyectos en construcción */
+        .link.construccion {
+            opacity: 0.6;
+            background-color: #FFCDD2; /* Color de fondo suave para construcción */
+            color: #B71C1C;
+            cursor: default; /* Cursor estándar para construcción */
+        }
+        .link.construccion .wip {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            font-size: 0.8em;
+            color: #B71C1C;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
         footer {
             margin-top: 30px;
             padding: 20px;
@@ -170,6 +190,23 @@
         <div class="link-container">
             <a href="https://meowrhino.github.io/rockPaperScissors/" class="link rockpaperscissors">Rock Paper Scissors</a>
             <a href="https://github.com/meowrhino/rockPaperScissors" class="github-link">GitHub</a>
+        </div>
+        <!-- Proyectos en construcción -->
+        <div class="link-container">
+            <a href="https://meowrhino.github.io/apoloASCII/" class="link construccion">Disco ASCII <span class="wip">WIP</span></a>
+            <a href="https://github.com/meowrhino/apoloASCII" class="github-link">GitHub</a>
+        </div>
+        <div class="link-container">
+            <a href="https://meowrhino.github.io/etchASketch/" class="link construccion">Minesweeper <span class="wip">WIP</span></a>
+            <a href="https://github.com/meowrhino/etchASketch" class="github-link">GitHub</a>
+        </div>
+        <div class="link-container">
+            <a href="https://meowrhino.github.io/instagramNameGenerator/" class="link construccion">Instagram Name Generator <span class="wip">WIP</span></a>
+            <a href="https://github.com/meowrhino/instagramNameGenerator" class="github-link">GitHub</a>
+        </div>
+        <div class="link-container">
+            <a href="https://meowrhino.github.io/pdfs/" class="link construccion">PDFs <span class="wip">WIP</span></a>
+            <a href="https://github.com/meowrhino/pdfs" class="github-link">GitHub</a>
         </div>
     </div>
     <footer>
